@@ -6,7 +6,7 @@
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
 
-Créé par: Emin
+Créé par: sidi
 Programme: M2 Mauritanie, E.N.I.T.
 Cours: Machine Learning & Optimisation (Prof. Radhia Bessi)
 Date: Décembre 2024

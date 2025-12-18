@@ -15,12 +15,12 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 setup(
     name="vizstyle",
     version="1.0.0",
-    author="Emin",
-    author_email="emin@example.com",
+    author="sidi",
+    author_email="sidi@example.com",
     description="Une bibliothèque de visualisation Python élégante avec un style cohérent et moderne",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/emin/vizstyle",
+    url="https://github.com/sidi/vizstyle",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -40,8 +40,8 @@ setup(
     install_requires=requirements,
     keywords="visualization plotting matplotlib graphs charts data-science",
     project_urls={
-        "Documentation": "https://github.com/emin/vizstyle",
-        "Source": "https://github.com/emin/vizstyle",
-        "Bug Reports": "https://github.com/emin/vizstyle/issues",
+        "Documentation": "https://github.com/sidi/vizstyle",
+        "Source": "https://github.com/sidi/vizstyle",
+        "Bug Reports": "https://github.com/sidi/vizstyle/issues",
     },
 )

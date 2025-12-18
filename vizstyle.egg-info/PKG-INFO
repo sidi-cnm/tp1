@@ -2,12 +2,12 @@ Metadata-Version: 2.4
 Name: vizstyle
 Version: 1.0.0
 Summary: Une bibliothèque de visualisation Python élégante avec un style cohérent et moderne
-Home-page: https://github.com/emin/vizstyle
-Author: Emin
-Author-email: emin@example.com
-Project-URL: Documentation, https://github.com/emin/vizstyle
-Project-URL: Source, https://github.com/emin/vizstyle
-Project-URL: Bug Reports, https://github.com/emin/vizstyle/issues
+Home-page: https://github.com/sidi/vizstyle
+Author: sidi
+Author-email: sidi@example.com
+Project-URL: Documentation, https://github.com/sidi/vizstyle
+Project-URL: Source, https://github.com/sidi/vizstyle
+Project-URL: Bug Reports, https://github.com/sidi/vizstyle/issues
 Keywords: visualization plotting matplotlib graphs charts data-science
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Developers
@@ -475,7 +475,7 @@ MIT License - voir le fichier LICENSE pour plus de détails.
 
 ## 👤 Auteur
 
-Créé par **Emin** - Étudiant M2 Mauritanie, E.N.I.T.
+Créé par **sidi** - Étudiant M2 Mauritanie, E.N.I.T.
 
 ## 🙏 Remerciements
 

@@ -5,7 +5,6 @@ Script d'exemples pour la bibliothèque VizStyle
 Ce script démontre l'utilisation de toutes les fonctions de visualisation
 disponibles dans VizStyle.
 
-Auteur: Emin
 """
 
 import numpy as np

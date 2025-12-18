@@ -12,7 +12,7 @@ Fonctions disponibles:
 - styled_heatmap: Carte de chaleur
 - styled_box: Boîte à moustaches
 
-Auteur: Emin
+Auteur: sidi
 Version: 1.0.0
 """
 

@@ -432,7 +432,7 @@ MIT License - voir le fichier LICENSE pour plus de détails.
 
 ## 👤 Auteur
 
-Créé par **Emin** - Étudiant M2 Mauritanie, E.N.I.T.
+Créé par **sidi** - Étudiant M2 Mauritanie, E.N.I.T.
 
 ## 🙏 Remerciements
 

@@ -1,10 +1,4 @@
-"""
-Démonstration visuelle rapide de VizStyle
-==========================================
 
-Ce script génère 6 graphiques de démonstration en utilisant VizStyle
-et les sauvegarde dans le répertoire courant.
-"""
 
 import numpy as np
 import vizstyle
