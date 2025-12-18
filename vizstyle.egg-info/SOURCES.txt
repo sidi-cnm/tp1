@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+examples.py
+requirements.txt
+setup.py
+vizstyle/__init__.py
+vizstyle.egg-info/PKG-INFO
+vizstyle.egg-info/SOURCES.txt
+vizstyle.egg-info/dependency_links.txt
+vizstyle.egg-info/requires.txt
+vizstyle.egg-info/top_level.txt

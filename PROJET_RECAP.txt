@@ -1,0 +1,280 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║                          📊 VIZSTYLE v1.0.0 📊                           ║
+║                                                                          ║
+║           Bibliothèque de Visualisation Python Personnalisée            ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+Créé par: Emin
+Programme: M2 Mauritanie, E.N.I.T.
+Cours: Machine Learning & Optimisation (Prof. Radhia Bessi)
+Date: Décembre 2024
+
+═══════════════════════════════════════════════════════════════════════════
+📦 CONTENU DU PACKAGE
+═══════════════════════════════════════════════════════════════════════════
+
+STRUCTURE DU PROJET:
+-------------------
+vizstyle/
+├── vizstyle/
+│   └── __init__.py          # Code principal de la bibliothèque
+├── setup.py                 # Configuration pour l'installation
+├── requirements.txt         # Dépendances
+├── README.md               # Documentation complète
+├── INSTALL.md              # Guide d'installation
+├── LICENSE                 # Licence MIT
+├── MANIFEST.in             # Fichiers à inclure dans le package
+├── .gitignore              # Fichiers à ignorer par git
+├── examples.py             # Exemples complets d'utilisation
+├── test_install.py         # Script de test de l'installation
+└── demo.py                 # Démonstration rapide
+
+═══════════════════════════════════════════════════════════════════════════
+✨ FONCTIONNALITÉS
+═══════════════════════════════════════════════════════════════════════════
+
+6 TYPES DE GRAPHIQUES INCLUS:
+
+1. 📈 styled_line()         - Graphiques en ligne (simple ou multiple)
+2. 🔵 styled_scatter()      - Nuages de points
+3. 📊 styled_bar()          - Graphiques en barres (vertical/horizontal)
+4. 📉 styled_histogram()    - Histogrammes avec KDE optionnel
+5. 🗺️  styled_heatmap()      - Cartes de chaleur (matrices)
+6. 📦 styled_box()          - Boîtes à moustaches
+
+STYLE COHÉRENT:
+--------------
+✓ Palette de couleurs moderne et harmonieuse
+✓ Typographie professionnelle
+✓ Grille et fond élégants
+✓ Configuration globale personnalisable
+✓ Retour des objets matplotlib (fig, ax) pour personnalisation
+
+PALETTE DE COULEURS:
+------------------
+• Bleu principal:  #2E86AB
+• Violet:          #A23B72
+• Orange:          #F18F01
+• Vert:            #06A77D
+• Rose:            #D81159
+• Bleu clair:      #73D2DE
+
+═══════════════════════════════════════════════════════════════════════════
+🚀 INSTALLATION
+═══════════════════════════════════════════════════════════════════════════
+
+MÉTHODE 1 - Installation en mode développement (recommandée):
+------------------------------------------------------------
+cd vizstyle/
+pip install -e .
+
+MÉTHODE 2 - Installation standard:
+----------------------------------
+cd vizstyle/
+pip install .
+
+MÉTHODE 3 - Créer et installer un wheel:
+---------------------------------------
+cd vizstyle/
+python setup.py sdist bdist_wheel
+pip install dist/vizstyle-1.0.0-py3-none-any.whl
+
+═══════════════════════════════════════════════════════════════════════════
+💡 UTILISATION
+═══════════════════════════════════════════════════════════════════════════
+
+EXEMPLE SIMPLE:
+--------------
+import vizstyle
+
+# Graphique en ligne
+vizstyle.styled_line(
+    x=[1, 2, 3, 4, 5],
+    y=[2, 4, 3, 5, 7],
+    title="Mon graphique",
+    xlabel="X",
+    ylabel="Y"
+)
+
+EXEMPLE AVANCÉ:
+--------------
+import vizstyle
+import numpy as np
+
+# Plusieurs courbes
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+vizstyle.styled_line(
+    x=x,
+    y=[y1, y2],
+    title="Fonctions trigonométriques",
+    xlabel="x",
+    ylabel="y",
+    label=['sin(x)', 'cos(x)']
+)
+
+PERSONNALISATION:
+----------------
+# Créer sans afficher
+fig, ax = vizstyle.styled_line(x, y, show=False)
+
+# Personnaliser davantage
+ax.axhline(y=0, color='red', linestyle='--')
+ax.set_ylim(-2, 2)
+
+# Afficher
+import matplotlib.pyplot as plt
+plt.show()
+
+# Sauvegarder
+fig.savefig('mon_graphique.png', dpi=300)
+
+═══════════════════════════════════════════════════════════════════════════
+🧪 TESTS & DÉMONSTRATION
+═══════════════════════════════════════════════════════════════════════════
+
+TESTER L'INSTALLATION:
+---------------------
+cd vizstyle/
+python test_install.py
+
+VOIR DES EXEMPLES COMPLETS:
+--------------------------
+cd vizstyle/
+python examples.py
+
+DÉMONSTRATION RAPIDE:
+--------------------
+cd vizstyle/
+python demo.py
+
+═══════════════════════════════════════════════════════════════════════════
+📚 DOCUMENTATION
+═══════════════════════════════════════════════════════════════════════════
+
+Documentation complète disponible dans:
+• README.md      - Guide utilisateur complet avec tous les exemples
+• INSTALL.md     - Instructions d'installation détaillées
+• examples.py    - 7 exemples complets et commentés
+• demo.py        - Démonstration rapide générant 6 graphiques
+
+═══════════════════════════════════════════════════════════════════════════
+📋 EXIGENCES SATISFAITES
+═══════════════════════════════════════════════════════════════════════════
+
+✅ Minimum 5 types de graphiques différents → 6 implémentés
+✅ Style visuel cohérent et personnalisé
+✅ Réutilisation de la logique des tracés matplotlib/seaborn
+✅ Empaquetage correct avec setup.py
+✅ Installation via pip
+✅ Import simple: import vizstyle
+✅ API intuitive et bien documentée
+✅ Exemples et tests fournis
+✅ Documentation complète en français
+
+═══════════════════════════════════════════════════════════════════════════
+🎯 FONCTIONNEMENT TECHNIQUE
+═══════════════════════════════════════════════════════════════════════════
+
+ARCHITECTURE:
+------------
+• Module principal: vizstyle/__init__.py (~700 lignes)
+• Configuration globale: STYLE_CONFIG (dict)
+• Fonction d'application du style: _apply_style()
+• 6 fonctions de visualisation publiques
+• Retour systématique des objets (fig, ax)
+
+DÉPENDANCES:
+-----------
+• matplotlib >= 3.3.0
+• numpy >= 1.19.0
+• seaborn >= 0.11.0
+• scipy >= 1.5.0
+
+COMPATIBILITÉ:
+-------------
+• Python >= 3.7
+• Toutes plateformes (Windows, Linux, macOS)
+
+═══════════════════════════════════════════════════════════════════════════
+📊 GRAPHIQUES DE DÉMONSTRATION GÉNÉRÉS
+═══════════════════════════════════════════════════════════════════════════
+
+Les 6 graphiques de démonstration suivants ont été générés:
+
+1. demo_01_line.png       - Fonctions trigonométriques (3 courbes)
+2. demo_02_scatter.png    - Nuage de points avec corrélation
+3. demo_03_bar.png        - Ventes trimestrielles (barres groupées)
+4. demo_04_histogram.png  - Distribution bimodale avec KDE
+5. demo_05_heatmap.png    - Matrice de corrélation
+6. demo_06_box.png        - Comparaison de 4 groupes
+
+Ces graphiques démontrent toutes les fonctionnalités de la bibliothèque
+avec un style cohérent et professionnel.
+
+═══════════════════════════════════════════════════════════════════════════
+🎓 UTILISATION PÉDAGOGIQUE
+═══════════════════════════════════════════════════════════════════════════
+
+Cette bibliothèque a été créée dans le cadre du cours de Machine Learning
+et Optimisation. Elle peut être utilisée pour:
+
+• Visualiser des résultats d'algorithmes ML
+• Présenter des analyses de données
+• Créer des rapports professionnels
+• Illustrer des concepts statistiques
+• Comparer des performances de modèles
+
+EXEMPLES D'APPLICATION EN ML:
+---------------------------
+✓ Courbes d'apprentissage (styled_line)
+✓ Distributions de features (styled_histogram)
+✓ Matrices de confusion (styled_heatmap)
+✓ Comparaison de modèles (styled_box)
+✓ Relations entre variables (styled_scatter)
+✓ Métriques par catégorie (styled_bar)
+
+═══════════════════════════════════════════════════════════════════════════
+⚖️  LICENCE
+═══════════════════════════════════════════════════════════════════════════
+
+MIT License - Utilisation libre pour tout projet personnel ou commercial
+
+═══════════════════════════════════════════════════════════════════════════
+🙏 REMERCIEMENTS
+═══════════════════════════════════════════════════════════════════════════
+
+• Matplotlib & Seaborn pour les bibliothèques de base
+• Prof. Radhia Bessi pour l'enseignement en ML
+• E.N.I.T. pour la formation en ingénierie
+• La communauté Python pour l'inspiration
+
+═══════════════════════════════════════════════════════════════════════════
+📞 SUPPORT
+═══════════════════════════════════════════════════════════════════════════
+
+Pour toute question ou problème:
+• Consulter README.md pour la documentation complète
+• Exécuter test_install.py pour vérifier l'installation
+• Examiner examples.py pour des cas d'usage détaillés
+
+═══════════════════════════════════════════════════════════════════════════
+✅ STATUT DU PROJET
+═══════════════════════════════════════════════════════════════════════════
+
+✓ Installation testée et validée
+✓ Tous les graphiques fonctionnent correctement
+✓ Documentation complète fournie
+✓ Exemples et tests inclus
+✓ Package prêt pour distribution
+✓ Code propre et bien commenté
+
+═══════════════════════════════════════════════════════════════════════════
+
+         VizStyle v1.0.0 - Donnez du style à vos visualisations! 📊✨
+
+═══════════════════════════════════════════════════════════════════════════

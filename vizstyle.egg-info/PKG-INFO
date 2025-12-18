@@ -1,0 +1,488 @@
+Metadata-Version: 2.4
+Name: vizstyle
+Version: 1.0.0
+Summary: Une bibliothèque de visualisation Python élégante avec un style cohérent et moderne
+Home-page: https://github.com/emin/vizstyle
+Author: Emin
+Author-email: emin@example.com
+Project-URL: Documentation, https://github.com/emin/vizstyle
+Project-URL: Source, https://github.com/emin/vizstyle
+Project-URL: Bug Reports, https://github.com/emin/vizstyle/issues
+Keywords: visualization plotting matplotlib graphs charts data-science
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib>=3.3.0
+Requires-Dist: numpy>=1.19.0
+Requires-Dist: seaborn>=0.11.0
+Requires-Dist: scipy>=1.5.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# 📊 VizStyle
+
+**VizStyle** est une bibliothèque de visualisation Python moderne qui offre un style cohérent et élégant pour vos graphiques. Elle s'appuie sur matplotlib et seaborn tout en appliquant automatiquement un thème visuel professionnel.
+
+## ✨ Caractéristiques
+
+- 🎨 **Style cohérent** : Palette de couleurs harmonieuse et design moderne
+- 📈 **6 types de graphiques** : Line, Scatter, Bar, Histogram, Heatmap, Box
+- 🚀 **Facile à utiliser** : API simple et intuitive
+- 🎯 **Personnalisable** : Options pour ajuster couleurs, tailles, et plus
+- 📦 **Installation simple** : Installable via pip
+
+## 🎨 Palette de couleurs
+
+VizStyle utilise une palette de couleurs soigneusement sélectionnée :
+- 🔵 Bleu principal : `#2E86AB`
+- 🟣 Violet : `#A23B72`
+- 🟠 Orange : `#F18F01`
+- 🟢 Vert : `#06A77D`
+- 🔴 Rose : `#D81159`
+- 💙 Bleu clair : `#73D2DE`
+
+## 📦 Installation
+
+### Installation depuis le dossier local
+
+```bash
+# Depuis le répertoire contenant setup.py
+pip install -e .
+```
+
+### Installation depuis PyPI (quand publié)
+
+```bash
+pip install vizstyle
+```
+
+## 🚀 Utilisation rapide
+
+```python
+import vizstyle
+
+# Graphique en ligne simple
+vizstyle.styled_line(
+    x=[1, 2, 3, 4, 5],
+    y=[2, 4, 3, 5, 7],
+    title="Mon premier graphique stylisé",
+    xlabel="Axe X",
+    ylabel="Axe Y"
+)
+```
+
+## 📖 Documentation complète
+
+### 1️⃣ Graphique en ligne (`styled_line`)
+
+Créez des graphiques en ligne élégants avec marqueurs.
+
+```python
+import vizstyle
+import numpy as np
+
+# Une seule courbe
+x = np.linspace(0, 10, 50)
+y = np.sin(x)
+
+vizstyle.styled_line(
+    x=x, 
+    y=y,
+    title="Fonction Sinus",
+    xlabel="x",
+    ylabel="sin(x)",
+    color='#2E86AB'
+)
+
+# Plusieurs courbes
+y1 = np.sin(x)
+y2 = np.cos(x)
+y3 = np.sin(x) * np.cos(x)
+
+vizstyle.styled_line(
+    x=x,
+    y=[y1, y2, y3],
+    title="Fonctions trigonométriques",
+    xlabel="x",
+    ylabel="y",
+    label=['sin(x)', 'cos(x)', 'sin(x)cos(x)']
+)
+```
+
+**Paramètres :**
+- `x` : array-like - Valeurs de l'axe X
+- `y` : array-like ou liste d'array-like - Valeurs Y (simple ou multiple)
+- `title` : str - Titre du graphique
+- `xlabel`, `ylabel` : str - Labels des axes
+- `label` : str ou liste - Labels pour la légende
+- `color` : str ou liste - Couleurs personnalisées
+- `figsize` : tuple - Taille de la figure (largeur, hauteur)
+- `show` : bool - Afficher immédiatement (défaut: True)
+
+### 2️⃣ Nuage de points (`styled_scatter`)
+
+Visualisez des relations entre variables avec des points.
+
+```python
+import vizstyle
+import numpy as np
+
+x = np.random.randn(100)
+y = 2 * x + np.random.randn(100) * 0.5
+
+vizstyle.styled_scatter(
+    x=x,
+    y=y,
+    title="Corrélation linéaire",
+    xlabel="Variable X",
+    ylabel="Variable Y",
+    color='#A23B72',
+    size=100
+)
+
+# Avec couleurs variables
+colors = np.random.rand(100)
+vizstyle.styled_scatter(
+    x=x,
+    y=y,
+    title="Points colorés",
+    color=colors,
+    size=150
+)
+```
+
+**Paramètres :**
+- `x`, `y` : array-like - Coordonnées des points
+- `title`, `xlabel`, `ylabel` : str - Titres et labels
+- `label` : str - Label pour la légende
+- `color` : str ou array-like - Couleur(s) des points
+- `size` : int ou array-like - Taille(s) des points
+- `figsize` : tuple - Taille de la figure
+- `show` : bool - Afficher immédiatement
+
+### 3️⃣ Graphique en barres (`styled_bar`)
+
+Comparez des catégories avec des barres verticales ou horizontales.
+
+```python
+import vizstyle
+
+# Barres simples
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [23, 45, 56, 78, 32]
+
+vizstyle.styled_bar(
+    x=categories,
+    y=values,
+    title="Ventes par catégorie",
+    xlabel="Catégories",
+    ylabel="Ventes (k€)",
+    color='#F18F01'
+)
+
+# Barres horizontales
+vizstyle.styled_bar(
+    x=categories,
+    y=values,
+    title="Classement",
+    horizontal=True
+)
+
+# Barres groupées
+group1 = [23, 45, 56, 78, 32]
+group2 = [30, 42, 60, 70, 38]
+group3 = [25, 48, 52, 75, 35]
+
+vizstyle.styled_bar(
+    x=categories,
+    y=[group1, group2, group3],
+    title="Comparaison multi-groupes",
+    labels=['Groupe 1', 'Groupe 2', 'Groupe 3']
+)
+```
+
+**Paramètres :**
+- `x` : array-like - Catégories ou positions
+- `y` : array-like ou liste d'array-like - Hauteurs (simple ou groupées)
+- `title`, `xlabel`, `ylabel` : str - Titres et labels
+- `labels` : liste - Labels pour barres groupées
+- `color` : str ou liste - Couleur(s) des barres
+- `horizontal` : bool - Barres horizontales (défaut: False)
+- `figsize` : tuple - Taille de la figure
+- `show` : bool - Afficher immédiatement
+
+### 4️⃣ Histogramme (`styled_histogram`)
+
+Visualisez la distribution de vos données avec une courbe KDE optionnelle.
+
+```python
+import vizstyle
+import numpy as np
+
+# Distribution normale
+data = np.random.normal(loc=50, scale=15, size=1000)
+
+vizstyle.styled_histogram(
+    data=data,
+    bins=30,
+    title="Distribution des scores",
+    xlabel="Score",
+    ylabel="Fréquence",
+    kde=True,
+    color='#06A77D'
+)
+
+# Distribution bimodale
+data_bimodal = np.concatenate([
+    np.random.normal(30, 5, 500),
+    np.random.normal(70, 8, 500)
+])
+
+vizstyle.styled_histogram(
+    data=data_bimodal,
+    bins=40,
+    title="Distribution bimodale",
+    kde=True
+)
+```
+
+**Paramètres :**
+- `data` : array-like - Données à visualiser
+- `bins` : int - Nombre de bins (défaut: 30)
+- `title`, `xlabel`, `ylabel` : str - Titres et labels
+- `color` : str - Couleur des barres
+- `kde` : bool - Ajouter courbe de densité (défaut: True)
+- `figsize` : tuple - Taille de la figure
+- `show` : bool - Afficher immédiatement
+
+### 5️⃣ Carte de chaleur (`styled_heatmap`)
+
+Visualisez des matrices de données avec des couleurs.
+
+```python
+import vizstyle
+import numpy as np
+
+# Matrice de corrélation
+data = np.random.rand(8, 8)
+labels = ['Var' + str(i) for i in range(1, 9)]
+
+vizstyle.styled_heatmap(
+    data=data,
+    title="Matrice de corrélation",
+    xticklabels=labels,
+    yticklabels=labels,
+    cmap='RdYlBu_r',
+    annot=True,
+    fmt='.2f'
+)
+
+# Matrice de confusion
+confusion = np.array([
+    [95, 3, 2],
+    [5, 88, 7],
+    [2, 8, 90]
+])
+
+vizstyle.styled_heatmap(
+    data=confusion,
+    title="Matrice de confusion",
+    xticklabels=['Classe A', 'Classe B', 'Classe C'],
+    yticklabels=['Classe A', 'Classe B', 'Classe C'],
+    cmap='Blues',
+    annot=True,
+    fmt='d'
+)
+```
+
+**Paramètres :**
+- `data` : array-like 2D - Matrice de données
+- `title`, `xlabel`, `ylabel` : str - Titres et labels
+- `xticklabels`, `yticklabels` : liste - Labels des axes
+- `cmap` : str - Palette de couleurs (défaut: 'RdYlBu_r')
+- `annot` : bool - Annoter les cellules (défaut: True)
+- `fmt` : str - Format des annotations (défaut: '.2f')
+- `figsize` : tuple - Taille de la figure
+- `show` : bool - Afficher immédiatement
+
+### 6️⃣ Boîte à moustaches (`styled_box`)
+
+Comparez les distributions de plusieurs groupes.
+
+```python
+import vizstyle
+import numpy as np
+
+# Plusieurs distributions
+data1 = np.random.normal(100, 15, 200)
+data2 = np.random.normal(110, 20, 200)
+data3 = np.random.normal(95, 12, 200)
+
+vizstyle.styled_box(
+    data=[data1, data2, data3],
+    labels=['Groupe A', 'Groupe B', 'Groupe C'],
+    title="Comparaison des distributions",
+    ylabel="Valeurs"
+)
+
+# Orientation horizontale
+vizstyle.styled_box(
+    data=[data1, data2, data3],
+    labels=['A', 'B', 'C'],
+    title="Distributions (horizontal)",
+    horizontal=True
+)
+```
+
+**Paramètres :**
+- `data` : array-like ou liste d'array-like - Données (simple ou multiple)
+- `labels` : liste - Labels pour chaque boîte
+- `title`, `xlabel`, `ylabel` : str - Titres et labels
+- `color` : str ou liste - Couleur(s) des boîtes
+- `horizontal` : bool - Orientation horizontale (défaut: False)
+- `figsize` : tuple - Taille de la figure
+- `show` : bool - Afficher immédiatement
+
+## 🎨 Personnalisation avancée
+
+Tous les graphiques retournent les objets `fig` et `ax` de matplotlib, vous permettant des personnalisations supplémentaires :
+
+```python
+import vizstyle
+
+# Créer le graphique sans l'afficher
+fig, ax = vizstyle.styled_line(
+    x=[1, 2, 3, 4],
+    y=[1, 4, 2, 3],
+    title="Mon graphique",
+    show=False
+)
+
+# Personnaliser davantage
+ax.axhline(y=2.5, color='red', linestyle='--', linewidth=2, label='Seuil')
+ax.legend()
+ax.set_ylim(0, 5)
+
+# Afficher maintenant
+import matplotlib.pyplot as plt
+plt.show()
+```
+
+## 🎯 Configuration du style
+
+Vous pouvez accéder et modifier la configuration globale :
+
+```python
+import vizstyle
+
+# Voir la configuration actuelle
+print(vizstyle.STYLE_CONFIG)
+
+# Modifier des paramètres
+vizstyle.STYLE_CONFIG['colors']['primary'] = '#FF5733'
+vizstyle.STYLE_CONFIG['lines']['width'] = 3.0
+vizstyle.STYLE_CONFIG['fonts']['title'] = 18
+
+# Créer un graphique avec la nouvelle config
+vizstyle.styled_line([1, 2, 3], [4, 5, 6], title="Style modifié")
+```
+
+## 💡 Exemples complets
+
+### Analyse de données réelle
+
+```python
+import vizstyle
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Générer des données
+np.random.seed(42)
+months = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 
+          'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc']
+sales_2023 = np.random.randint(80, 150, 12)
+sales_2024 = sales_2023 + np.random.randint(-20, 40, 12)
+
+# 1. Évolution des ventes
+vizstyle.styled_line(
+    x=range(12),
+    y=[sales_2023, sales_2024],
+    title="Évolution des ventes mensuelles",
+    xlabel="Mois",
+    ylabel="Ventes (k€)",
+    label=['2023', '2024']
+)
+
+# 2. Comparaison par trimestre
+q_labels = ['Q1', 'Q2', 'Q3', 'Q4']
+q_2023 = [sales_2023[:3].sum(), sales_2023[3:6].sum(), 
+          sales_2023[6:9].sum(), sales_2023[9:].sum()]
+q_2024 = [sales_2024[:3].sum(), sales_2024[3:6].sum(), 
+          sales_2024[6:9].sum(), sales_2024[9:].sum()]
+
+vizstyle.styled_bar(
+    x=q_labels,
+    y=[q_2023, q_2024],
+    title="Ventes par trimestre",
+    xlabel="Trimestre",
+    ylabel="Ventes totales (k€)",
+    labels=['2023', '2024']
+)
+
+# 3. Distribution des ventes
+vizstyle.styled_histogram(
+    data=np.concatenate([sales_2023, sales_2024]),
+    bins=20,
+    title="Distribution des ventes mensuelles",
+    xlabel="Ventes (k€)",
+    kde=True
+)
+```
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à :
+- Signaler des bugs
+- Proposer de nouvelles fonctionnalités
+- Améliorer la documentation
+- Soumettre des pull requests
+
+## 📄 Licence
+
+MIT License - voir le fichier LICENSE pour plus de détails.
+
+## 👤 Auteur
+
+Créé par **Emin** - Étudiant M2 Mauritanie, E.N.I.T.
+
+## 🙏 Remerciements
+
+- Matplotlib et Seaborn pour les bibliothèques de base
+- La communauté Python pour l'inspiration
+- Radhia Bessi pour l'enseignement en Machine Learning
+
+---
+
+**VizStyle** - Donnez du style à vos visualisations ! 📊✨

@@ -1,0 +1,13 @@
+# Inclure les fichiers importants dans le package
+include README.md
+include LICENSE
+include requirements.txt
+include examples.py
+
+# Inclure tous les fichiers Python
+recursive-include vizstyle *.py
+
+# Exclure les fichiers non nécessaires
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
